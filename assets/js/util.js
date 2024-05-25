@@ -470,6 +470,11 @@
 							switch (this.type) {
 
 								case 'submit':
+                                   
+                                    $('#gform *').fadeOut(2000);
+                                    $('#gform').prepend('Your submission has been processed...');
+                                  
+                                    break;
 								case 'reset':
 									break;
 
