@@ -64,7 +64,7 @@
 						<!-- Contact -->
 							<article id="contact">
 								<h2 class="major">Contact</h2>
-								<form class="gform" enctype="text/plain" action="https://docs.google.com/forms/d/e/1FAIpQLSeXCnBgLz5J1Lo-iBSPrXgNCEhzyrZYC-6ED0FR_1dMhyaCxw/formResponse?" target="hidden_iframe" onsubmit="return validateTheForm()">
+								<form class="gform" enctype="text/plain" action="https://docs.google.com/forms/d/e/1FAIpQLSeXCnBgLz5J1Lo-iBSPrXgNCEhzyrZYC-6ED0FR_1dMhyaCxw/formResponse?" target="hidden_iframe" onsubmit="submitted=true;">
 									<div class="field half first">
 										<label for="name">Name</label>
 										<input type="text" name="entry.2005620554" id="entry.2005620554" />
@@ -85,13 +85,16 @@
                                     <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
                                     
                                     
-                                    <script>
-                                       function validateTheForm(){
-                                          submitted=true;
-                                          $('gform').fadeOut(2000);
-                                          $('gform').prepend('Your submission has been processed...');
-                                       }
+                                    <!-- javascript to send the info and display success message -->
+                                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                                        <script type="text/javascript">var submitted=false;</script>
+                                        <script type="text/javascript">
+                                        $('#gform').on('submit', function(e) {
+                                          $('#gform *').fadeOut(1500);
+                                          $('#gform').prepend('<br><br><div class="alert alert-success" role="alert">Thanks for contacting us. We will be in touch soon.</div>');
+                                          });
                                     </script>
+
 								</form>
 								<ul class="icons">
 									<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
